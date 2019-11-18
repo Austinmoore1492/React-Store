@@ -1,0 +1,44 @@
+{
+  "name": "e-commerce-with-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^1.1.0",
+    "@material-ui/icons": "^1.1.0",
+    "body-parser": "1.19.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^6.0.0",
+    "email-templates": "^4.0.1",
+    "express": "4.17.1",
+    "express-session": "1.17.0",
+    "handlebars": "^4.1.2",
+    "helmet": "3.21.1",
+    "nodemailer": "^4.6.7",
+    "nodemon": "^1.17.5",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router": "5.1.2",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "1.1.4",
+    "react-stripe-elements": "6.0.1",
+    "react-swipeable-views": "0.13.3",
+    "stripe": "7.13.0",
+    "styled-components": "4.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "node server/index.js"
+  },
+  "proxy": "http://localhost:3001",
+  "keywords": [
+    "store",
+    "express",
+    "e-commerce",
+    "react",
+    "node"
+  ],
+  "description": "Roll Your Own E-Commerce Store Built on React, Express, Node, and Stripe for payments. Follow the START_HERE.txt file and you will be well on your way to an awesome new store. "
+}

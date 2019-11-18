@@ -1,0 +1,89 @@
+{
+  "store_name": "Awesome E-Commerce Store",
+  "store_slug": "react-stripe-store",
+  "api_key": "Your Stripe Public Key Here",
+  "colors": {
+    "primary": {
+      "main": "#1d1d1d",
+      "dark": "#003b6f",
+      "contrastText": "#FFF"
+    },
+    "secondary": {
+      "main": "#003b6f"
+    }
+  },
+  "products": [
+    {
+      "name": "Computer",
+      "url": "computer",
+      "stripe_id": "Your Stripe Product ID here",
+      "description": "Computer!",
+      "photos": ["blackComputer.jpg", "bedComputer.jpg"],
+      "details": ["Perfect Computer"],
+      "variants": [
+        {
+          "name": "Color",
+          "options": [
+            { "label": "Space Grey" },
+            { "label": "Silver" },
+            { "label": "Rose Gold" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VR Headset",
+      "url": "vr",
+      "stripe_id": "Your Stripe Procuct ID Here",
+      "description": "Awesome VR Headset!",
+      "photos": ["vrHeadset.jpg", "purpleVR.jpg"],
+      "details": ["Perfect VR Headset"],
+      "variants": [
+        {
+          "name": "Color",
+          "options": [
+            { "label": "Black" },
+            { "label": "Blue" },
+            { "label": "Red" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Another Computer",
+      "url": "reverseComputer",
+      "stripe_id": "Stripe Product ID Again",
+      "description": "Even Better Computer",
+      "photos": ["bedComputer.jpg", "blackComputer.jpg"],
+      "details": ["Even Better Computer! Than The First One"],
+      "variants": [
+        {
+          "name": "Color",
+          "options": [
+            { "label": "Black" },
+            { "label": "Silver" },
+            { "label": "Red" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Even Better VR Headset",
+      "url": "reverseVr",
+      "stripe_id": "Oh Look Another Stripe Product ID",
+      "description": "The Coolest VR Headset ever!",
+      "photos": ["purpleVR.jpg", "vrHeadset.jpg"],
+      "details": ["This Headset Is Cooler Than Yours!"],
+      "variants": [
+        {
+          "name": "Size",
+          "options": [
+            { "label": "Small" },
+            { "label": "Medium" },
+            { "label": "Large" }
+          ]
+        }
+      ]
+    }
+  ]
+}

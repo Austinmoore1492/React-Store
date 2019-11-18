@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 16px;
+  font-family: "Poppins", arial, sans-serif;
+  background: #eee;
+}
+
+h2 {
+  color: #1d1d1d !important;
+}
+
+h2 {
+  color: #32325d;
+  font-weight: 400;
+  line-height: 50px;
+  font-size: 30px;
+  margin: 20px 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  padding: 20px;
+}
+
+.Checkout {
+  margin: 0 auto;
+  max-width: 800px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 5px;
+}
+
+label {
+  color: #6b7c93;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+}
+
+form {
+  margin-bottom: 40px;
+}
+
+.StripeElement {
+  display: block;
+  margin: 30px 0 40px;
+  max-width: 500px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.54);
+}
+
+.StripeElement.PaymentRequestButton {
+  padding: 0;
+}
+
+.heroDiv {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(34, 34, 34, 0.4)),
+    color-stop(50%, rgba(34, 34, 34, 1)),
+    to(rgba(34, 34, 34, 0.4))
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(34, 34, 34, 0.4) 0%,
+    rgba(34, 34, 34, 1) 50%,
+    rgba(34, 34, 34, 0.4) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(34, 34, 34, 0.4) 0%,
+    rgba(34, 34, 34, 1) 50%,
+    rgba(34, 34, 34, 0.4) 100%
+  );
+}
+
+.heroPara {
+  text-align: center;
+  color: #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  font-size: 4rem;
+}
+
+.typeButton {
+  color: #ddd !important; /*Override for Mui button color*/
+}
+
+@media (max-width: 850px) {
+  .heroPara {
+    font-size: 2.3rem;
+  }
+  .typeButton {
+    color: #1d1d1d !important;
+  }
+  .wrapper {
+    padding: 20px;
+    min-height: 70vh;
+  }
+}
