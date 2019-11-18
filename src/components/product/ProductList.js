@@ -36,7 +36,7 @@ const LargeIMG = styled.div`
   }
 `;
 const ImgWrapper = styled.div`
-  border-bottom: 3px solid ${props => props.borderColor};
+  border-bottom: 2px solid ${props => props.borderColor};
   display: flex;
 `;
 const Title = styled.div`

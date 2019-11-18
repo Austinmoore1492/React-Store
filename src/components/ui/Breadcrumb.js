@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { withTheme } from '@material-ui/core/styles';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { withTheme } from "@material-ui/core/styles";
 
 const Wrapper = styled.div`
   margin-bottom: 30px;
@@ -22,10 +22,10 @@ const Spacer = styled.span`
   margin: 0 10px;
 `;
 
-const Breadcrumb = ({ product, theme }) => {  
+const Breadcrumb = ({ product, theme }) => {
   return (
     <Wrapper>
-      <Link to={'/product'}>{"All Products"}</Link>
+      <Link to={"/product"}>{"All Products"}</Link>
       <Spacer color={theme.palette.primary.main}>&raquo;</Spacer>
       <Link to={`/product/${product.url}`}>{product.name}</Link>
     </Wrapper>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
+
 import ProductList from "./product/ProductList";
 
 const Hero = styled.div`
