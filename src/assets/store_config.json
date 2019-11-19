@@ -4,12 +4,12 @@
   "api_key": "Your Stripe Public Key Here",
   "colors": {
     "primary": {
-      "main": "#1d1d1d",
-      "dark": "#003b6f",
+      "main": "#003b6f",
+      "dark": "#1d1d1d",
       "contrastText": "#FFF"
     },
     "secondary": {
-      "main": "#003b6f"
+      "main": "#ff5100"
     }
   },
   "products": [

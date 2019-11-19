@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 
-import ProductList from "./product/ProductList";
+import LandingProducts from "./product/LandingProducts";
 
 const Hero = styled.div`
   height: 400px;
@@ -33,8 +33,14 @@ class Landing extends Component {
             </div>
           </Hero>
 
-          <Divider style={{ margin: "40px 0", backgroundColor: "#003b6f" }} />
-          <ProductList config={config} />
+          <Divider
+            style={{
+              margin: "40px 0",
+              height: "2px",
+              backgroundColor: "#003b6f"
+            }}
+          />
+          <LandingProducts config={config} />
         </Paper>
       </Fragment>
     );

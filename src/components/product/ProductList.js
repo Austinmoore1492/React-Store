@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import styled from "styled-components";
+
 import { Link } from "react-router-dom";
 import { withTheme } from "@material-ui/core/styles";
 
@@ -36,7 +37,7 @@ const LargeIMG = styled.div`
   }
 `;
 const ImgWrapper = styled.div`
-  border-bottom: 2px solid ${props => props.borderColor};
+  border-bottom: 3px solid ${props => props.borderColor};
   display: flex;
 `;
 const Title = styled.div`
@@ -87,23 +88,27 @@ class ProductList extends Component {
   render() {
     const { products } = this.state;
     return (
-      <Wrapper>
-        {products.map((product, i) => {
-          return (
-            <Link key={i} to={`/product/${product.url}`}>
-              <ImgWrapper borderColor={this.props.theme.palette.secondary.main}>
-                <LargeIMG
-                  img={`../photos/${product.url}/${product.photos[0]}`}
-                />
-              </ImgWrapper>
-              <Title>
-                {product.name}
-                <Price>${product.price}</Price>
-              </Title>
-            </Link>
-          );
-        })}
-      </Wrapper>
+      <Fragment>
+        <Wrapper>
+          {products.map((product, i) => {
+            return (
+              <Link key={i} to={`/product/${product.url}`}>
+                <ImgWrapper
+                  borderColor={this.props.theme.palette.secondary.main}
+                >
+                  <LargeIMG
+                    img={`../photos/${product.url}/${product.photos[0]}`}
+                  />
+                </ImgWrapper>
+                <Title>
+                  {product.name}
+                  <Price>${product.price}</Price>
+                </Title>
+              </Link>
+            );
+          })}
+        </Wrapper>
+      </Fragment>
     );
   }
 }

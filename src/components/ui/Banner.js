@@ -74,7 +74,7 @@ class Banner extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="secondary" className={classes.appbar}>
+        <AppBar position="static" color="primary" className={classes.appbar}>
           <Toolbar>
             <Link to={`/`} className={classes.menuButton}>
               <div className="logo" />
