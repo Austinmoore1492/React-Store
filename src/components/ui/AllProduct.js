@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     color: #003b6f;
     text-decoration: none;
     transition: all 0.3s;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #fff;
     &:hover {
       border-color: #ff5100;
     }

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
 
-import AdminTable from './AdminTable';
-import PageWrapper from '../ui/PageWrapper';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import AdminTable from "./AdminTable";
+import PageWrapper from "../ui/PageWrapper";
 
 class Admin extends Component {
   state = {
-    view_status: 'paid'
+    view_status: "paid"
   };
 
   componentDidMount() {
@@ -16,11 +16,11 @@ class Admin extends Component {
   }
 
   getOrders = status => {
-    fetch('/orders/' + status, {
-      credentials: 'same-origin'
+    fetch("/orders/" + status, {
+      credentials: "same-origin"
     })
       .then(res => {
-        if (res.redirected) this.props.history.push('/login');
+        if (res.redirected) this.props.history.push("/login");
         else return res.json();
       })
       .then(orders => {
@@ -29,18 +29,18 @@ class Admin extends Component {
         if (orders.error) {
           this.logout();
         } else {
-          const statuses = orders.map(o => o.metadata.status || 'Ordered');
-          const shipping = orders.map(o => '');
+          const statuses = orders.map(o => o.metadata.status || "Ordered");
+          const shipping = orders.map(o => "");
           this.setState({ orders, statuses, shipping });
         }
       });
   };
 
   logout = () => {
-    fetch('/api/logout', {
-      credentials: 'same-origin'
+    fetch("/api/logout", {
+      credentials: "same-origin"
     }).then(res => {
-      this.props.history.push('/login');
+      this.props.history.push("/login");
     });
   };
 
@@ -66,11 +66,11 @@ class Admin extends Component {
     const order = orders[index],
       status = statuses[index];
 
-    if (status === 'Shipped') {
+    if (status === "Shipped") {
       const tracking = shipping[index];
-      fetch('/order/ship/', {
-        method: 'POST',
-        headers: new Headers({ 'content-type': 'application/json' }),
+      fetch("/order/ship/", {
+        method: "POST",
+        headers: new Headers({ "content-type": "application/json" }),
         body: JSON.stringify({
           id: order.id,
           status: status,
@@ -84,9 +84,9 @@ class Admin extends Component {
           this.setState({ orders });
         });
     } else {
-      fetch('/order/update/', {
-        method: 'POST',
-        headers: new Headers({ 'content-type': 'application/json' }),
+      fetch("/order/update/", {
+        method: "POST",
+        headers: new Headers({ "content-type": "application/json" }),
         body: JSON.stringify({
           id: order.id,
           status: status
@@ -111,15 +111,15 @@ class Admin extends Component {
 
     return (
       <PageWrapper>
-        <Paper style={{ position: 'relative ' }}>
+        <Paper style={{ position: "relative " }}>
           <Button
             color="primary"
             onClick={this.logout}
             style={{
-              position: 'absolute',
-              right: '20px',
-              top: '10px',
-              zIndex: '1'
+              position: "absolute",
+              right: "20px",
+              top: "10px",
+              zIndex: "1"
             }}
           >
             Logout

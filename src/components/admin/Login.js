@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
-import PageWrapper from "../ui/PageWrapper";
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
+
+import PageWrapper from "../ui/PageWrapper";
 
 class Login extends Component {
   state = {

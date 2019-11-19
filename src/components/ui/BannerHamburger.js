@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 const styles = theme => ({
   hamburger: {
     flex: 1,
-    textAlign: 'right'
+    textAlign: "right"
   },
   hamburgerButton: {
-    textDecoration: 'none',
-    width: '100%'
+    textDecoration: "none",
+    width: "100%"
   }
 });
 
@@ -44,7 +43,7 @@ class BannerHamburger extends Component {
           onClose={() => this.toggleMenu(false)}
           onOpen={() => this.toggleMenu(true)}
         >
-          <List style={{ width: '200px' }}>
+          <List style={{ width: "200px" }}>
             <ListItem>
               <Link
                 to={`/`}
@@ -60,8 +59,8 @@ class BannerHamburger extends Component {
               <span
                 onClick={() => this.toggleMenu(false)}
                 style={{
-                  display: 'flex',
-                  width: '100%'
+                  display: "flex",
+                  width: "100%"
                 }}
               >
                 {this.props.productLink}

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-import PageWrapper from "../ui/PageWrapper";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+
+import PageWrapper from "../ui/PageWrapper";
 import CartTable from "./CartTable";
 
 const Wrapper = styled.div`

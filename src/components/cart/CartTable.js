@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { withTheme } from '@material-ui/core/styles';
-
-import TextField from '@material-ui/core/TextField';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { withTheme } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
 
 const Table = styled.table`
   width: 100%;
@@ -81,9 +80,9 @@ class CartTable extends Component {
           {this.props.items.map((d, i) => {
             let attrs = [];
             for (let key in d.attr) {
-              attrs.push(`${key.replace('_', ' ')}: ${d.attr[key]}`);
+              attrs.push(`${key.replace("_", " ")}: ${d.attr[key]}`);
             }
-            attrs = attrs.join(', ');
+            attrs = attrs.join(", ");
 
             return (
               <tr key={`cart${i}`}>
@@ -92,7 +91,7 @@ class CartTable extends Component {
                     <Image img={d.img} />
                     <Title>
                       <Name underline={this.props.theme.palette.primary.main}>
-                        <Link to={d.url ? d.url : '/'}>{d.name}</Link>
+                        <Link to={d.url ? d.url : "/"}>{d.name}</Link>
                       </Name>
                       <Attrs>{attrs}</Attrs>
                     </Title>
@@ -107,7 +106,7 @@ class CartTable extends Component {
                     }}
                     type="number"
                     margin="none"
-                    style={{ width: '40px' }}
+                    style={{ width: "40px" }}
                   />
                 </td>
                 <td>${(d.quantity * d.price).toFixed(2)}</td>

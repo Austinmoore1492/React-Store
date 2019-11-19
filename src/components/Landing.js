@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
-
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 
 import LandingProducts from "./product/LandingProducts";
 
@@ -14,7 +12,7 @@ const Hero = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -40px -40px 60px;
+  margin-bottom: 20px;
   @media (max-width: 700px) {
     font-size: 2rem;
     height: 150px;
@@ -26,20 +24,19 @@ class Landing extends Component {
     const { config } = this.props;
     return (
       <Fragment>
-        <Paper style={{ padding: "40px", backgroundColor: "#eee" }}>
-          <Hero>
-            <div className="heroDiv">
-              <p className="heroPara">Welcome Weary Traveler</p>
-            </div>
-          </Hero>
-
-          <Divider
-            style={{
-              margin: "40px 0",
-              height: "2px",
-              backgroundColor: "#003b6f"
-            }}
-          />
+        <Hero>
+          <div className="heroDiv">
+            <p className="heroPara">Welcome Weary Traveler</p>
+          </div>
+        </Hero>
+        <Paper
+          style={{
+            padding: "40px",
+            maxWidth: 1100,
+            margin: "20px auto",
+            backgroundColor: "#fff"
+          }}
+        >
           <LandingProducts config={config} />
         </Paper>
       </Fragment>

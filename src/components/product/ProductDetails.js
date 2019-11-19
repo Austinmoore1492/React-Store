@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
@@ -55,13 +54,13 @@ class ProductDetails extends Component {
     this.setState({ [name]: event.target.value });
     const index = event.target.selectedIndex;
     const selectedOption = event.target.childNodes[index];
-    let sku_id; 
+    let sku_id;
     let price;
-    if (sku_id || price){
+    if (sku_id || price) {
       sku_id = selectedOption.getAttribute("sku_id");
       price = selectedOption.getAttribute("price");
       this.props.setSKU({ sku_id, price });
-    } 
+    }
   };
   render() {
     const { product } = this.props;

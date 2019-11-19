@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
 import { withStyles } from "@material-ui/core/styles";
-import PageWrapper from "../ui/PageWrapper";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import CheckoutHeader from "./CheckoutHeader";
 
+import CheckoutHeader from "./CheckoutHeader";
+import PageWrapper from "../ui/PageWrapper";
 import Email from "./Email";
 import Shipping from "./Shipping";
 import CreditCards from "./CreditCards";

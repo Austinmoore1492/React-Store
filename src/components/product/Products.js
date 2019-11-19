@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Paper from "@material-ui/core/Paper";
+
 import ProductList from "./ProductList";
 import PageWrapper from "../ui/PageWrapper";
-import Paper from "@material-ui/core/Paper";
 
 const Wrapper = styled.div`
   padding: 40px;

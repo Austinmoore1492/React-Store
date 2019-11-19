@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Button from "@material-ui/core/Button";
 
 const Table = styled.table`
   table {
@@ -24,14 +23,14 @@ const Status = styled.div`
   font-size: 30px;
   background: ${props => {
     switch (props.state) {
-      case 'Ordered':
-        return '#FF0500';
-      case 'Processed':
-        return '#FF9300';
-      case 'Received':
-        return '#C3E42B';
+      case "Ordered":
+        return "#FF0500";
+      case "Processed":
+        return "#FF9300";
+      case "Received":
+        return "#C3E42B";
       default:
-        return '#00B852';
+        return "#00B852";
     }
   }};
 `;
@@ -56,7 +55,7 @@ class AdminTable extends Component {
               const time = new Date(order.created * 1000);
               let metadata = [];
               for (let key in order.metadata) {
-                if (key.indexOf('order') !== -1) {
+                if (key.indexOf("order") !== -1) {
                   let m = JSON.parse(order.metadata[key]);
                   for (let mKey in m) {
                     metadata.push(`${mKey}: ${m[mKey]}`);
@@ -70,7 +69,7 @@ class AdminTable extends Component {
                     <div>{`${time.getMonth()}/${time.getDate()}/${time.getFullYear()}`}</div>
                     <div>${order.amount / 100}</div>
                   </td>
-                  <td style={{ fontSize: '14px' }}>
+                  <td style={{ fontSize: "14px" }}>
                     {order.items.map((o, i) => {
                       if (i < order.items.length - 2)
                         return (
@@ -81,22 +80,22 @@ class AdminTable extends Component {
                       else return null;
                     })}
                   </td>
-                  <td style={{ fontSize: '14px' }}>
+                  <td style={{ fontSize: "14px" }}>
                     {metadata.map((m, i) => (
                       <div key={`m${i}`}>{m}</div>
                     ))}
                   </td>
-                  <td style={{ fontSize: '12px' }}>
+                  <td style={{ fontSize: "12px" }}>
                     <div>{order.email}</div>
                     <div>{order.id}</div>
                   </td>
-                  <td style={{ fontSize: '12px' }}>
+                  <td style={{ fontSize: "12px" }}>
                     <div>{order.shipping.name}</div>
                     <div>{order.shipping.address.line1}</div>
                     <div>{order.shipping.address.line2}</div>
                     <div>
-                      {order.shipping.address.city}{' '}
-                      {order.shipping.address.state}{' '}
+                      {order.shipping.address.city}{" "}
+                      {order.shipping.address.state}{" "}
                       {order.shipping.address.postal_code}
                     </div>
                   </td>
