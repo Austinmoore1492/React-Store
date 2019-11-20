@@ -37,11 +37,18 @@ const Image = styled.div`
   }
 `;
 const Remove = styled.span`
+  font-size: 1.3rem;
   cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.5s;
-  &:hover {
-    opacity: 1;
+  @media (max-width: 650px) {
+    font-size: 1rem;
+  }
+  @media (min-width: 651px) {
+    border-bottom: 2px solid #fff;
+    transition: all 0.3s;
+    &:hover {
+      border-color: red;
+      color: red;
+    }
   }
 `;
 const Title = styled.div`
@@ -111,7 +118,9 @@ class CartTable extends Component {
                 </td>
                 <td>${(d.quantity * d.price).toFixed(2)}</td>
                 <td>
-                  <Remove onClick={() => this.props.removeItem(i)}>X</Remove>
+                  <Remove onClick={() => this.props.removeItem(i)}>
+                    &#10008;
+                  </Remove>
                 </td>
               </tr>
             );
