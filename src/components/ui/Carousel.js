@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   grid-column: span 3;
@@ -40,7 +40,7 @@ class Carousel extends Component {
   };
 
   render() {
-    const { photos, url } = this.props;
+    const { photos, url, name } = this.props;
     return (
       <Wrapper>
         <div>
@@ -50,11 +50,12 @@ class Carousel extends Component {
                 onClick={() => this.pickImage(p)}
                 img={`../photos/${url}/${p}`}
                 key={i}
+                alt={name}
               />
             );
           })}
         </div>
-        <LargeIMG img={`../photos/${url}/${this.state.img}`} />
+        <LargeIMG img={`../photos/${url}/${this.state.img}`} alt={name} />
       </Wrapper>
     );
   }

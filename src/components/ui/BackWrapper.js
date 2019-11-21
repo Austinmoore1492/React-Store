@@ -4,9 +4,7 @@ import styled from "styled-components";
 import { withTheme } from "@material-ui/core/styles";
 
 const Wrapper = styled.div`
-  margin: 2rem 0;
-  text-align: center;
-  font-size: 2rem;
+  padding: 10px;
   > a {
     color: #003b6f;
     text-decoration: none;
@@ -17,21 +15,22 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 650px) {
-    font-size: 1.5rem;
-    margin: 20px 0;
+    text-align: center;
   }
 `;
+
 const Spacer = styled.span`
-  color: ${props => props.color};
-  margin: 0 10px;
+  margin: 0 2px;
+  color: #ff5100;
+  font-size: 1.4rem;
 `;
 
-const AllProduct = ({ theme }) => {
+const BackWrapper = () => {
   return (
     <Wrapper>
+      <Spacer>&laquo;</Spacer>
       <Link to={"/product"}>{"All Products"}</Link>
-      <Spacer color={theme.palette.secondary.main}>&raquo;</Spacer>
     </Wrapper>
   );
 };
-export default withTheme()(AllProduct);
+export default withTheme()(BackWrapper);

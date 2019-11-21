@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Divider from '@material-ui/core/Divider';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Divider from "@material-ui/core/Divider";
 
-const Wrapper = styled.div`
-`;
+const Wrapper = styled.div``;
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -19,8 +18,12 @@ const Row = styled.div`
     flex-direction: column;
     justify-content: center;
   }
-  .black-text { color: #000; }
-  .small-text { font-size: 14px; }
+  .black-text {
+    color: #000;
+  }
+  .small-text {
+    font-size: 14px;
+  }
 `;
 const Image = styled.div`
   background-image: url(${props => props.img});
@@ -35,48 +38,50 @@ class CartSmall extends Component {
     let price;
     if (this.props.items.length) {
       price = this.props.items
-        .map(i => i.quantity*i.price)
-        .reduce((a,b) => a+Number(b))
-        .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+        .map(i => i.quantity * i.price)
+        .reduce((a, b) => a + Number(b))
+        .toLocaleString("en-US", { style: "currency", currency: "USD" });
     }
     return (
       <Wrapper>
-        { this.props.items.map((d,i) => {
+        {this.props.items.map((d, i) => {
           let attrs = [];
           for (let key in d.attr) {
-            attrs.push(`${key.replace("_", " ")}: ${d.attr[key]}`)
+            attrs.push(`${key.replace("_", " ")}: ${d.attr[key]}`);
           }
           attrs = attrs.join(", ");
 
-          return (<Row key={`cart${i}`}>
-            <span>
-              <Image img={d.img} />
-            </span>
-            <span className="full">
-              <Row>
-                <span className="black-text">{d.name}</span>
-                <span>{d.quantity}</span>
-              </Row>
-              <div className="small-text">{attrs}</div>
-            </span>
-          </Row>);
+          return (
+            <Row key={`cart${i}`}>
+              <span>
+                <Image img={d.img} alt={d.name} />
+              </span>
+              <span className="full">
+                <Row>
+                  <span className="black-text">{d.name}</span>
+                  <span>{d.quantity}</span>
+                </Row>
+                <div className="small-text">{attrs}</div>
+              </span>
+            </Row>
+          );
         })}
-        <Divider style={{ margin: "20px 0" }}/>
-          <Row>
-            <span className="small-text">Subtotal</span>
-            <span className="black-text small-text">{price}</span>
-          </Row>
-          <Row>
-            <span className="small-text">Shipping</span>
-            <span className="black-text small-text">FREE</span>
-          </Row>
-        <Divider style={{ margin: "20px 0" }}/>
-          <Row>
-            <span>Total</span>
-            <span className="black-text">{price}</span>
-          </Row>
+        <Divider style={{ margin: "20px 0" }} />
+        <Row>
+          <span className="small-text">Subtotal</span>
+          <span className="black-text small-text">{price}</span>
+        </Row>
+        <Row>
+          <span className="small-text">Shipping</span>
+          <span className="black-text small-text">FREE</span>
+        </Row>
+        <Divider style={{ margin: "20px 0" }} />
+        <Row>
+          <span>Total</span>
+          <span className="black-text">{price}</span>
+        </Row>
       </Wrapper>
     );
   }
-};
+}
 export default CartSmall;

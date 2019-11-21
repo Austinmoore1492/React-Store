@@ -45,9 +45,11 @@ const Remove = styled.span`
   @media (min-width: 651px) {
     border-bottom: 2px solid #fff;
     transition: all 0.3s;
-    &:hover {
+    &:hover,
+    &:focus {
       border-color: red;
       color: red;
+      outline: none;
     }
   }
 `;
@@ -86,6 +88,11 @@ class CartTable extends Component {
         <tbody>
           {this.props.items.map((d, i) => {
             let attrs = [];
+            let deleteOnKeyDown = e => {
+              if (e.keyCode === 13) {
+                this.props.removeItem(i);
+              }
+            };
             for (let key in d.attr) {
               attrs.push(`${key.replace("_", " ")}: ${d.attr[key]}`);
             }
@@ -95,7 +102,7 @@ class CartTable extends Component {
               <tr key={`cart${i}`}>
                 <td>
                   <Flex>
-                    <Image img={d.img} />
+                    <Image img={d.img} alt={d.name} />
                     <Title>
                       <Name underline={this.props.theme.palette.primary.main}>
                         <Link to={d.url ? d.url : "/"}>{d.name}</Link>
@@ -117,8 +124,8 @@ class CartTable extends Component {
                   />
                 </td>
                 <td>${(d.quantity * d.price).toFixed(2)}</td>
-                <td>
-                  <Remove onClick={() => this.props.removeItem(i)}>
+                <td onKeyDown={deleteOnKeyDown}>
+                  <Remove tabIndex="0" onClick={() => this.props.removeItem(i)}>
                     &#10008;
                   </Remove>
                 </td>

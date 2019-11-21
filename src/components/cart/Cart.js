@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 
 import PageWrapper from "../ui/PageWrapper";
 import CartTable from "./CartTable";
+import BackWrapper from "../ui/BackWrapper";
 
 const Wrapper = styled.div`
   padding: 40px;
@@ -102,6 +103,7 @@ class Cart extends Component {
               </p>
             )}
           </Wrapper>
+          <BackWrapper />
         </Paper>
       </PageWrapper>
     );

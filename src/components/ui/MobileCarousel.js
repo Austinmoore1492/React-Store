@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import MobileStepper from '@material-ui/core/MobileStepper';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
+import React, { Component } from "react";
+import styled from "styled-components";
+import MobileStepper from "@material-ui/core/MobileStepper";
+import Button from "@material-ui/core/Button";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import SwipeableViews from "react-swipeable-views";
 
 const Wrapper = styled.div`
   position: relative;
@@ -23,54 +23,65 @@ const LargeIMG = styled.div`
 
 class MobileCarousel extends Component {
   state = {
-    activeStep: 0,
+    activeStep: 0
   };
 
   handleNext = () => {
     this.setState(prevState => ({
-      activeStep: prevState.activeStep + 1,
+      activeStep: prevState.activeStep + 1
     }));
   };
 
   handleBack = () => {
     this.setState(prevState => ({
-      activeStep: prevState.activeStep - 1,
+      activeStep: prevState.activeStep - 1
     }));
   };
 
   handleStepChange = activeStep => {
     this.setState({ activeStep });
   };
-  
+
   render() {
-    const { photos, url } = this.props;
+    const { photos, url, name } = this.props;
     const { activeStep } = this.state;
     const maxSteps = photos.length;
 
     return (
       <Wrapper>
         <SwipeableViews
-          axis='x'
+          axis="x"
           index={this.state.activeStep}
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
         >
-          {photos.map((photo,i) => (
-            <LargeIMG key={`photos${i}`} img={`../photos/${url}/${photo}`} />
+          {photos.map((photo, i) => (
+            <LargeIMG
+              key={`photos${i}`}
+              img={`../photos/${url}/${photo}`}
+              alt={name}
+            />
           ))}
         </SwipeableViews>
         <MobileStepper
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
-          
           nextButton={
-            <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
+            <Button
+              size="small"
+              onClick={this.handleNext}
+              disabled={activeStep === maxSteps - 1}
+            >
               <KeyboardArrowRight />
             </Button>
           }
           backButton={
-            <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
+            <Button
+              size="small"
+              onClick={this.handleBack}
+              disabled={activeStep === 0}
+            >
               <KeyboardArrowLeft />
             </Button>
           }
@@ -78,5 +89,5 @@ class MobileCarousel extends Component {
       </Wrapper>
     );
   }
-};
+}
 export default MobileCarousel;

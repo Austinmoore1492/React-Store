@@ -112,9 +112,21 @@ class Product extends Component {
     const { product } = this.props;
     let photos;
     if (isWidthUp("sm", this.props.width)) {
-      photos = <Carousel photos={product.photos} url={product.url} />;
+      photos = (
+        <Carousel
+          photos={product.photos}
+          url={product.url}
+          name={product.name}
+        />
+      );
     } else {
-      photos = <MobileCarousel photos={product.photos} url={product.url} />;
+      photos = (
+        <MobileCarousel
+          photos={product.photos}
+          url={product.url}
+          name={product.name}
+        />
+      );
     }
 
     return (

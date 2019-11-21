@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { withTheme } from "@material-ui/core/styles";
 
-import AllProduct from "../ui/AllProduct";
+import AllProducts from "../ui/AllProducts";
 
 const Wrapper = styled.div`
   display: grid;
@@ -100,6 +100,7 @@ class ProductList extends Component {
                 >
                   <LargeIMG
                     img={`../photos/${product.url}/${product.photos[0]}`}
+                    alt={product.name}
                   />
                 </ImgWrapper>
                 <Title>
@@ -110,7 +111,7 @@ class ProductList extends Component {
             );
           })}
         </Wrapper>
-        <AllProduct />
+        <AllProducts />
       </Fragment>
     );
   }

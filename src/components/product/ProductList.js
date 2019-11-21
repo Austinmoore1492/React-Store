@@ -97,6 +97,7 @@ class ProductList extends Component {
                 >
                   <LargeIMG
                     img={`../photos/${product.url}/${product.photos[0]}`}
+                    alt={product.name}
                   />
                 </ImgWrapper>
                 <Title>
