@@ -30,10 +30,12 @@ const LargeIMG = styled.div`
   display: inline-block;
   filter: grayscale(0);
   @media (min-width: 650px) {
-    filter: grayscale(0);
-    transition: filter 0.5s;
+    transition: all 0.5s;
     &:hover {
-      filter: grayscale(100%);
+      transform: translateY(-20px);
+      box-shadow: 0px 8px 5px #969696, 0px 12px 8px #a1a1a1,
+        0px 15px 10px #afafaf;
+      /* filter: grayscale(100%); */
     }
   }
 `;
