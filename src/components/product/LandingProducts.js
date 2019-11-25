@@ -28,7 +28,6 @@ const LargeIMG = styled.div`
   background-repeat: no-repeat;
   background-position: 50%;
   display: inline-block;
-  filter: grayscale(0);
   @media (min-width: 650px) {
     transition: all 0.5s;
     &:hover {

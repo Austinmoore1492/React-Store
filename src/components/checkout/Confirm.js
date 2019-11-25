@@ -29,7 +29,7 @@ const Confirm = props => {
         </h3>
         <p style={{ marginBottom: "2rem" }}>
           A confirmation email has been sent to{" "}
-          <b>{props.location.state.order.email}</b>.
+          <strong>{props.location.state.order.email}</strong>.
         </p>
         <p>
           Order ID:{" "}
