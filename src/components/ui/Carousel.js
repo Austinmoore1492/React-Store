@@ -17,6 +17,13 @@ const IMG = styled.div`
   margin-bottom: 10px;
   background-position: 50%;
   cursor: pointer;
+  transition: all 0.3s ease;
+  @media (min-width: 650px) {
+    filter: grayscale(0);
+    &:hover {
+      filter: grayscale(100%);
+    }
+  }
 `;
 const LargeIMG = styled.div`
   background-image: url(${props => props.img});
@@ -28,6 +35,12 @@ const LargeIMG = styled.div`
   background-position: 50% 0;
   display: inline-block;
   grid-column: span 3;
+  transition: all 0.3s ease;
+  @media (min-width: 651px) {
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
 `;
 
 class Carousel extends Component {
