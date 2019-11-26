@@ -138,7 +138,8 @@ class Checkout extends Component {
     }
     return (
       <PageWrapper>
-        {this.state.items.length > 0 && (
+        {//Render Only if user has something in cart
+        this.state.items.length > 0 && (
           <Grid
             container
             className={classes.root}
@@ -209,7 +210,9 @@ class Checkout extends Component {
             </Grid>
           </Grid>
         )}
-        {this.state.items.length === 0 && (
+        {/*Don't allow the user to access the checkout page if they don't 
+        have anything in their cart*/
+        this.state.items.length === 0 && (
           <Grid>
             <Paper style={{ minHeight: "500px" }}>
               <h2 style={{ padding: "40px 0 0 40px", fontWeight: 600 }}>

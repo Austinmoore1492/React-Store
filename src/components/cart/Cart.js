@@ -75,7 +75,8 @@ class Cart extends Component {
         <Paper>
           <Wrapper>
             <h2 style={{ marginTop: 0, fontWeight: 600 }}>Cart</h2>
-            {this.state.items.length > 0 && (
+            {//Conditionally Render if user has something in the cart
+            this.state.items.length > 0 && (
               <div>
                 <CartTable
                   items={this.state.items}
@@ -96,7 +97,8 @@ class Cart extends Component {
                 </RightSide>
               </div>
             )}
-            {this.state.items.length === 0 && (
+            {//Suggest a product if nothing is in the cart
+            this.state.items.length === 0 && (
               <p>
                 Hmmmmm, there's nothing in your cart yet. May I suggest the VR
                 Headset
