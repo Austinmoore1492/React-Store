@@ -6,6 +6,8 @@ import LandingProducts from "./product/LandingProducts";
 
 const Hero = styled.div`
   height: 400px;
+  max-width: 2000px;
+  margin: auto;
   background-image: url("https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
   background-position: 50%;
@@ -16,6 +18,9 @@ const Hero = styled.div`
   @media (max-width: 700px) {
     font-size: 2rem;
     height: 150px;
+  }
+  @media (min-width: 2000px) {
+    height: 600px;
   }
 `;
 
