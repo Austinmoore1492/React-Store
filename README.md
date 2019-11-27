@@ -10,7 +10,7 @@ Site also includes a password-protected admin view, Nodemailer integration for s
 
 ### Quickstart
 
-> Built using the React Stripe Store repo from [React Stripe Store](https://github.com/binx/react-stripe-store)
+> Go [here](https://react-test-store.herokuapp.com/) to view the live site
 
 ```
 npm install
