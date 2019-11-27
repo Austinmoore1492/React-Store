@@ -1,7 +1,5 @@
 # React + Stripe Ecommerce Store Template
 
-> For more detailed information look at the START_HERE.txt file
-
 Written in React, served up with Express, and integrated with [Stripe Dashboard](https://stripe.com/us/payments).
 
 Uses [Material-UI](http://material-ui.com/) and [styled-components](https://www.styled-components.com/) for the design.
