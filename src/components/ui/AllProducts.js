@@ -6,16 +6,20 @@ import { withTheme } from "@material-ui/core/styles";
 const Wrapper = styled.div`
   margin: 2rem 0;
   text-align: center;
-  font-size: 2rem;
   > a {
     color: #003b6f;
     text-decoration: none;
     padding: 5px;
+  }
+  @media(min-width: 651px){
+    font-size: 2rem;
+  > a {
     transition: all 0.3s;
     border-bottom: 2px solid #fff;
     &:hover {
       border-color: #ff5100;
     }
+  }
   }
   @media (max-width: 650px) {
     font-size: 1.5rem;
