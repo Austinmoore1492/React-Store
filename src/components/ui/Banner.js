@@ -10,7 +10,8 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    borderBottom: "3px solid #ff5100"
   },
   buttons: {
     display: "flex",
@@ -52,6 +53,7 @@ class Banner extends Component {
 
     let menu;
     if (isWidthDown("sm", this.props.width)) {
+      //switch between mobile menu and desktop menu if the screen size is small
       menu = <BannerHamburger productLink={productLink} number={number} />;
     } else {
       menu = (
