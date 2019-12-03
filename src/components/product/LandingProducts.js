@@ -64,6 +64,7 @@ class ProductList extends Component {
       products: this.props.config.products
     };
   }
+
   componentDidMount() {
     fetch("/product-info/")
       .then(res => res.json())
@@ -93,7 +94,10 @@ class ProductList extends Component {
     return (
       <Fragment>
         <Wrapper>
-          {products.slice(0, size).map((product, i) => {
+          {/*Only show three items on the home screen
+          can change the images to show sales
+          or items that are selling really Well*/
+          products.slice(0, size).map((product, i) => {
             return (
               <Link key={i} to={`/product/${product.url}`}>
                 <ImgWrapper
