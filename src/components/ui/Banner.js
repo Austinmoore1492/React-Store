@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    borderBottom: "3px solid #ff5100"
+    borderBottom: "2px solid #ff5100"
   },
   buttons: {
     display: "flex",
@@ -41,11 +41,7 @@ class Banner extends Component {
 
     const productLink = (
       <Link to={`/product`} className={classes.menuButton}>
-        <Typography
-          style={{ borderBottom: "2px solid #ff5100" }}
-          variant="button"
-          className="typeButton"
-        >
+        <Typography variant="button" className="typeButton shopButton">
           Shop
         </Typography>
       </Link>
@@ -58,9 +54,7 @@ class Banner extends Component {
     } else {
       menu = (
         <span className={classes.buttons}>
-          <div style={{ display: "flex", flex: 1, color: "red" }}>
-            {productLink}
-          </div>
+          <div style={{ display: "flex", flex: 1 }}>{productLink}</div>
           <Link
             to={`/cart`}
             className={classes.menuButton}

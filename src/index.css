@@ -111,12 +111,19 @@ form {
   color: #ddd !important; /*Override for Mui button color*/
 }
 
+.shopButton {
+  border-bottom: 2px solid #ff5100;
+}
+
 @media (max-width: 850px) {
   .heroPara {
     font-size: 2.3rem;
   }
   .typeButton {
     color: #1d1d1d !important;
+  }
+  .shopButton {
+    border: none;
   }
   .wrapper {
     padding: 20px;

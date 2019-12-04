@@ -15,7 +15,8 @@ const styles = theme => ({
   },
   hamburgerButton: {
     textDecoration: "none",
-    width: "100%"
+    width: "100%",
+    color: "#1d1d1d"
   }
 });
 
@@ -34,8 +35,12 @@ class BannerHamburger extends Component {
     const { classes } = this.props;
     return (
       <span className={classes.hamburger}>
-        <IconButton color="inherit" aria-label="Menu">
-          <MenuIcon onClick={() => this.toggleMenu(true)} />
+        <IconButton
+          onClick={() => this.toggleMenu(true)}
+          color="inherit"
+          aria-label="Menu"
+        >
+          <MenuIcon />
         </IconButton>
         <SwipeableDrawer
           anchor="right"
