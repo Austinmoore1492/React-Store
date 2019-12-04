@@ -127,7 +127,7 @@ class AdminTable extends Component {
                   <td>
                     <Button
                       onClick={() => this.props.updateOrder(i)}
-                      variant="raised"
+                      variant="contained"
                       color="secondary"
                     >
                       Notify

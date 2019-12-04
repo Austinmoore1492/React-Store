@@ -11,15 +11,15 @@ const Wrapper = styled.div`
     text-decoration: none;
     padding: 5px;
   }
-  @media(min-width: 651px){
+  @media (min-width: 651px) {
     font-size: 2rem;
-  > a {
-    transition: all 0.3s;
-    border-bottom: 2px solid #fff;
-    &:hover {
-      border-color: #ff5100;
+    > a {
+      transition: all 0.3s;
+      border-bottom: 2px solid #fff;
+      &:hover {
+        border-color: #ff5100;
+      }
     }
-  }
   }
   @media (max-width: 650px) {
     font-size: 1.5rem;
@@ -39,4 +39,4 @@ const AllProducts = ({ theme }) => {
     </Wrapper>
   );
 };
-export default withTheme()(AllProducts);
+export default withTheme(AllProducts);

@@ -108,7 +108,7 @@ class ProductDetails extends Component {
         </div>
         <Right>
           <Button
-            variant="raised"
+            variant="contained"
             color="primary"
             onClick={() => this.props.addToCart(this.state)}
           >

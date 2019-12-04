@@ -38,7 +38,7 @@ class _CardForm extends Component {
           <CardElement {...createOptions(this.props.fontSize)} />
         </label>
         <Button
-          variant="raised"
+          variant="contained"
           color="primary"
           disabled={this.state.disabled}
           onClick={this.handleSubmit}

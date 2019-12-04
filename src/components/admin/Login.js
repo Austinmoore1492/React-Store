@@ -49,7 +49,11 @@ class Login extends Component {
                 style={{ color: "rgba(0,0,0,0.2)" }}
               />
             </div>
-            <Button variant="raised" color="primary" onClick={this.logUserIn}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.logUserIn}
+            >
               log in
             </Button>
             <div style={{ marginTop: "20px" }}>{this.state.error}</div>

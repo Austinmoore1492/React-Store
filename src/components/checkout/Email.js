@@ -18,7 +18,7 @@ const Email = ({ email, changePane, handleChange }) => {
         your email with a 3rd party.
       </p>
       <Button
-        variant="raised"
+        variant="contained"
         color="primary"
         style={{ marginTop: "20px" }}
         disabled={!email.length}

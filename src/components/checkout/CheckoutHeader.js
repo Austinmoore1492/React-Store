@@ -65,4 +65,4 @@ const CheckoutHeader = ({ pane, text, currentPane, changePane, theme }) => {
     </Flex>
   );
 };
-export default withTheme()(CheckoutHeader);
+export default withTheme(CheckoutHeader);

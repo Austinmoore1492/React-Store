@@ -137,4 +137,4 @@ class CartTable extends Component {
     );
   }
 }
-export default withTheme()(CartTable);
+export default withTheme(CartTable);

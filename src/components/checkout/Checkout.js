@@ -143,7 +143,7 @@ class Checkout extends Component {
           <Grid
             container
             className={classes.root}
-            spacing={16}
+            spacing={10}
             direction={"row-reverse"}
           >
             <Grid item md={4} xs={12}>

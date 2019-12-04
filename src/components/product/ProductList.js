@@ -112,4 +112,4 @@ class ProductList extends Component {
     );
   }
 }
-export default withTheme()(ProductList);
+export default withTheme(ProductList);

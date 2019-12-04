@@ -1,16 +1,16 @@
-const app = require('./index.js');
-const bodyParser = require('body-parser')
-const nodemailer = require('nodemailer');
+const app = require("./index.js");
+const express = require("express");
+const nodemailer = require("nodemailer");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
-const Email = require('email-templates');
+const Email = require("email-templates");
 
-app.use(bodyParser.json());
-const config = require('../src/assets/store_config.json');
+app.use(express.json());
+const config = require("../src/assets/store_config.json");
 
 let transporter = nodemailer.createTransport({
-  service: 'Gmail',
+  service: "Gmail",
   auth: {
-    type: 'OAuth2',
+    type: "OAuth2",
     user: process.env.EMAIL_FROM,
     clientId: process.env.EMAIL_CLIENT_ID,
     clientSecret: process.env.EMAIL_CLIENT_SECRET,
@@ -27,15 +27,18 @@ const email = new Email({
   send: true,
   views: {
     options: {
-      extension: 'hbs'
+      extension: "hbs"
     }
   },
   transport: transporter
 });
 
 function sendEmail(status, order) {
-  const items = order.items.slice(0,-2).map(o => {
-    o.amount = (o.amount/100).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  const items = order.items.slice(0, -2).map(o => {
+    o.amount = (o.amount / 100).toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
     return o;
   });
   const time = new Date(order.status_transitions.paid * 1000);
@@ -43,12 +46,15 @@ function sendEmail(status, order) {
     .send({
       template: status,
       message: {
-        to: order.email,
+        to: order.email
       },
       locals: {
         order: order,
         order_id: order.id.split("_")[1],
-        order_total: (order.amount/100).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+        order_total: (order.amount / 100).toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD"
+        }),
         order_date: `${time.getMonth()}/${time.getDate()}/${time.getFullYear()}`,
         items: items,
         config: config
@@ -58,34 +64,42 @@ function sendEmail(status, order) {
     .catch(console.error);
 }
 
-app.post('/order/create', function(req, res) {
-  stripe.orders.create({
-    currency: 'usd',
-    items: req.body.items,
-    shipping: req.body.shipping,
-    metadata: req.body.metadata,
-    email: req.body.email
-  }, function(err, order) {
-    err ? res.status(500).send(err) : res.json(order);
-  });
-});
-
-app.post('/order/pay', function(req, res) {
-  stripe.orders.pay(req.body.id, {
-    source: req.body.source
-  }, function(err, order) {
-    if (err) {
-      res.status(500).send(err);
-      return;
+app.post("/order/create", function(req, res) {
+  stripe.orders.create(
+    {
+      currency: "usd",
+      items: req.body.items,
+      shipping: req.body.shipping,
+      metadata: req.body.metadata,
+      email: req.body.email
+    },
+    function(err, order) {
+      err ? res.status(500).send(err) : res.json(order);
     }
-    res.json(order);
-    sendEmail('Ordered', order);
-  });
+  );
 });
 
-app.post('/order/update', function(req, res) {
-  stripe.orders.update(req.body.id,
-    { metadata: {status: req.body.status} },
+app.post("/order/pay", function(req, res) {
+  stripe.orders.pay(
+    req.body.id,
+    {
+      source: req.body.source
+    },
+    function(err, order) {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.json(order);
+      sendEmail("Ordered", order);
+    }
+  );
+});
+
+app.post("/order/update", function(req, res) {
+  stripe.orders.update(
+    req.body.id,
+    { metadata: { status: req.body.status } },
     (err, order) => {
       if (err) {
         res.status(500).send(err);
@@ -93,13 +107,15 @@ app.post('/order/update', function(req, res) {
       }
       res.json(order);
       sendEmail(req.body.status, order);
-    });
+    }
+  );
 });
 
-app.post('/order/ship', function(req, res) {
-  stripe.orders.update(req.body.id,
+app.post("/order/ship", function(req, res) {
+  stripe.orders.update(
+    req.body.id,
     {
-      metadata: {status: req.body.status},
+      metadata: { status: req.body.status },
       status: "fulfilled",
       shipping: {
         carrier: "USPS",
@@ -112,6 +128,7 @@ app.post('/order/ship', function(req, res) {
         return;
       }
       res.json(order);
-      sendEmail('Shipped', order);
-    });
+      sendEmail("Shipped", order);
+    }
+  );
 });

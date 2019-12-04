@@ -8,15 +8,14 @@ const Wrapper = styled.div`
   > a {
     color: #003b6f;
     text-decoration: none;
-    
   }
   @media (min-width: 651px) {
     > a {
-        transition: all 0.3s;
-        border-bottom: 2px solid #fff;
+      transition: all 0.3s;
+      border-bottom: 2px solid #fff;
       &:hover {
-         border-color: #ff5100;
-    }
+        border-color: #ff5100;
+      }
     }
   }
   @media (max-width: 650px) {
@@ -38,4 +37,4 @@ const BackWrapper = () => {
     </Wrapper>
   );
 };
-export default withTheme()(BackWrapper);
+export default withTheme(BackWrapper);

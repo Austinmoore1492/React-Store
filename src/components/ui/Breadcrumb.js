@@ -31,4 +31,4 @@ const Breadcrumb = ({ product, theme }) => {
     </Wrapper>
   );
 };
-export default withTheme()(Breadcrumb);
+export default withTheme(Breadcrumb);
