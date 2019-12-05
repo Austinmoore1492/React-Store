@@ -1,6 +1,6 @@
 {
   "name": "e-commerce-with-react",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.7.1",
@@ -33,12 +33,6 @@
     "server": "node server/index.js"
   },
   "proxy": "http://localhost:3001",
-  "keywords": [
-    "store",
-    "express",
-    "e-commerce",
-    "react",
-    "node"
-  ],
-  "description": "Roll Your Own E-Commerce Store Built on React, Express, Node, and Stripe for payments. Follow the START_HERE.txt file and you will be well on your way to an awesome new store. "
+  "keywords": ["store", "express", "e-commerce", "react", "node"],
+  "description": "Roll Your Own E-Commerce Store Built on React, Express, Node, and Stripe for payments."
 }
