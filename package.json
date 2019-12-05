@@ -22,7 +22,7 @@
     "react-scripts": "1.1.4",
     "react-stripe-elements": "6.0.1",
     "react-swipeable-views": "0.13.3",
-    "stripe": "7.13.0",
+    "stripe": "7.14.0",
     "styled-components": "4.4.0"
   },
   "scripts": {
