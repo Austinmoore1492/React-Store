@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 
@@ -21,20 +21,25 @@ const Confirm = props => {
       <Paper
         style={{ padding: "40px", minHeight: "500px", textAlign: "center" }}
       >
-        <h2 style={{ marginTop: 0, fontWeight: 600 }}>
-          Thank you for your purchase!
-        </h2>
-        <h3 style={{ marginBottom: "2rem" }}>
-          <strong>Please Keep your Order ID for your records.</strong>
-        </h3>
-        <p style={{ marginBottom: "2rem" }}>
-          A confirmation email has been sent to{" "}
-          <strong>{props.location.state.order.email}</strong>.
-        </p>
-        <p>
-          Order ID:{" "}
-          <strong>{props.location.state.order.id.split("_")[1]}</strong>
-        </p>
+        {props.location.state && (
+          <Fragment>
+            <h2 style={{ marginTop: 0, fontWeight: 600 }}>
+              Thank you for your purchase!
+            </h2>
+            <h3 style={{ marginBottom: "2rem" }}>
+              <strong>Please Keep your Order ID for your records.</strong>
+            </h3>
+            <p style={{ marginBottom: "2rem" }}>
+              A confirmation email has been sent to{" "}
+              <strong>{props.location.state.order.email}</strong>.
+            </p>
+            <p>
+              Order ID:{" "}
+              <strong>{props.location.state.order.id.split("_")[1]}</strong>
+            </p>
+          </Fragment>
+        )}
+        {!props.location.state && <p>Sorry Something went horribly wrong</p>}
       </Paper>
     </PageWrapper>
   );
