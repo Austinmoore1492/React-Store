@@ -100,8 +100,11 @@ class Cart extends Component {
             {//Suggest a product if nothing is in the cart
             this.state.items.length === 0 && (
               <p>
-                Hmmmmm, there's nothing in your cart yet. May I suggest the VR
-                Headset
+                Hmmmmm, there's nothing in your cart yet. May I suggest the{" "}
+                <Link to={"/product/vr"} className="vrLink">
+                  {" "}
+                  VR Headset{" "}
+                </Link>
               </p>
             )}
           </Wrapper>
