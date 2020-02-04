@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { withTheme } from "@material-ui/core/styles";
+import React, { Component, Fragment } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { withTheme } from '@material-ui/core/styles';
 
-import AllProducts from "../ui/AllProducts";
+import AllProducts from '../ui/AllProducts';
 
 const Wrapper = styled.div`
   display: grid;
@@ -34,7 +34,6 @@ const LargeIMG = styled.div`
       transform: translateY(-20px);
       box-shadow: 0px 8px 5px #969696, 0px 12px 8px #a1a1a1,
         0px 15px 10px #afafaf;
-      /* filter: grayscale(100%); */
     }
   }
 `;
@@ -66,7 +65,7 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch("/product-info/")
+    fetch('/product-info/')
       .then(res => res.json())
       .then(skus => {
         let products = [...this.state.products];
@@ -76,17 +75,17 @@ class ProductList extends Component {
             .filter(s => s.product === product.stripe_id)
             .map(s => s.price / 100);
           if (skuList.length === 1) {
-            product["price"] = skuList[0];
+            product['price'] = skuList[0];
           } else {
             let min = Math.min(...skuList),
               max = Math.max(...skuList);
-            if (min === max) product["price"] = skuList[0];
-            else product["price"] = `${min} - $${max}`;
+            if (min === max) product['price'] = skuList[0];
+            else product['price'] = `${min} - $${max}`;
           }
         });
         this.setState({ products });
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => console.error('Error:', error));
   }
   render() {
     const size = 3;
