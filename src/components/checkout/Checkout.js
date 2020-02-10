@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
-import CheckoutHeader from "./CheckoutHeader";
-import PageWrapper from "../ui/PageWrapper";
-import Email from "./Email";
-import Shipping from "./Shipping";
-import CreditCards from "./CreditCards";
-import CartSmall from "../cart/CartSmall";
+import CheckoutHeader from './CheckoutHeader';
+import PageWrapper from '../ui/PageWrapper';
+import Email from './Email';
+import Shipping from './Shipping';
+import CreditCards from './CreditCards';
+import CartSmall from '../cart/CartSmall';
+import LandingProducts from '../product/LandingProducts';
 
 const styles = theme => ({
   root: {
@@ -18,16 +19,16 @@ const styles = theme => ({
   paper: {
     padding: 12 * 2,
     color: theme.palette.text.secondary,
-    marginBottom: "20px"
+    marginBottom: '20px'
   },
   inputInfo: {
-    fontSize: "16px",
-    marginTop: "20px",
-    color: "black"
+    fontSize: '16px',
+    marginTop: '20px',
+    color: 'black'
   },
   labelFocus: {
-    color: "#1d1d1d",
-    borderColor: "#1d1d1d"
+    color: '#1d1d1d',
+    borderColor: '#1d1d1d'
   }
 });
 
@@ -37,7 +38,7 @@ class Checkout extends Component {
     this.state = {
       pane: 0,
       items: [],
-      email: "",
+      email: '',
       address: {}
     };
   }
@@ -56,12 +57,12 @@ class Checkout extends Component {
     const { items, email } = this.state;
 
     const itemSKUS = items.map(i => ({
-      type: "sku",
+      type: 'sku',
       parent: i.sku_id,
       quantity: +i.quantity
     }));
 
-    let metadata = { status: "Ordered" };
+    let metadata = { status: 'Ordered' };
     items.forEach((item, index) => {
       metadata[`order-${index}-${item.sku_id}`] = JSON.stringify(item.attr);
     });
@@ -76,16 +77,16 @@ class Checkout extends Component {
           line2: address.address2,
           city: address.locality,
           state: address.region,
-          country: "US",
+          country: 'US',
           postal_code: address.postalCode
         }
       },
       email: email
     };
 
-    fetch("/order/create", {
-      method: "POST",
-      headers: new Headers({ "content-type": "application/json" }),
+    fetch('/order/create', {
+      method: 'POST',
+      headers: new Headers({ 'content-type': 'application/json' }),
       body: JSON.stringify(postBody)
     })
       .then(response => response.json())
@@ -99,9 +100,9 @@ class Checkout extends Component {
       this.setState({ error: true });
       return;
     }
-    fetch("/order/pay", {
-      method: "POST",
-      headers: new Headers({ "content-type": "application/json" }),
+    fetch('/order/pay', {
+      method: 'POST',
+      headers: new Headers({ 'content-type': 'application/json' }),
       body: JSON.stringify({
         id: this.state.order_id,
         source: token
@@ -110,7 +111,7 @@ class Checkout extends Component {
       .then(response => response.json())
       .then(order => {
         this.props.history.push({
-          pathname: "/confirm",
+          pathname: '/confirm',
           state: { order }
         });
       });
@@ -144,7 +145,7 @@ class Checkout extends Component {
             container
             className={classes.root}
             spacing={10}
-            direction={"row-reverse"}
+            direction={'row-reverse'}
           >
             <Grid item md={4} xs={12}>
               <Paper className={classes.paper}>
@@ -154,7 +155,7 @@ class Checkout extends Component {
             <Grid item md={8} xs={12}>
               <Paper className={classes.paper}>
                 <CheckoutHeader
-                  text={"Your Email"}
+                  text={'Your Email'}
                   classes={classes.heading}
                   pane={0}
                   currentPane={pane}
@@ -172,7 +173,7 @@ class Checkout extends Component {
               </Paper>
               <Paper className={classes.paper}>
                 <CheckoutHeader
-                  text={"Shipping Address"}
+                  text={'Shipping Address'}
                   classes={classes.heading}
                   pane={1}
                   currentPane={pane}
@@ -191,14 +192,14 @@ class Checkout extends Component {
               </Paper>
               <Paper className={classes.paper}>
                 <CheckoutHeader
-                  text={"Payment"}
+                  text={'Payment'}
                   classes={classes.heading}
                   pane={2}
                   currentPane={pane}
                   changePane={() => this.changePane(2)}
                 />
                 {this.state.error && (
-                  <p style={{ color: "#f40" }}>
+                  <p style={{ color: '#f40' }}>
                     Sorry, an error has occurred. Please refresh the page and
                     try again.
                   </p>
@@ -214,14 +215,30 @@ class Checkout extends Component {
         have anything in their cart*/
         this.state.items.length === 0 && (
           <Grid>
-            <Paper style={{ minHeight: "500px" }}>
-              <h2 style={{ padding: "40px 0 0 40px", fontWeight: 600 }}>
+            <Paper style={{ minHeight: '500px' }}>
+              <h2 style={{ padding: '40px 0 0 40px', fontWeight: 600 }}>
                 Checkout
               </h2>
-              <p style={{ paddingLeft: "40px" }}>
+              <p style={{ paddingLeft: '40px' }}>
                 Hmmmm, probably don't need to checkout if you don't have
                 anything in your cart.
               </p>
+              <hr className="hr-style" />
+              <p style={{ paddingLeft: '40px' }}>
+                Here is some of our products for you to look at, or you can just
+                checkout the entire shop and see whats available.
+              </p>
+
+              <Paper
+                style={{
+                  padding: '40px',
+                  maxWidth: 1100,
+                  margin: '15px auto',
+                  backgroundColor: '#fff'
+                }}
+              >
+                <LandingProducts config={config} />
+              </Paper>
             </Paper>
           </Grid>
         )}
