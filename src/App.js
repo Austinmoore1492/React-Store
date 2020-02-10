@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { StripeProvider } from "react-stripe-elements";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import React, { Component } from 'react';
+import { StripeProvider } from 'react-stripe-elements';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import config from "./assets/store_config";
-import Landing from "./components/Landing";
+import config from './assets/store_config';
+import Landing from './components/Landing';
 
-import ScrollToTop from "./components/ui/ScrollToTop";
-import Banner from "./components/ui/Banner";
-import Products from "./components/product/Products";
-import Product from "./components/product/Product";
-import Cart from "./components/cart/Cart";
-import Checkout from "./components/checkout/Checkout";
-import Confirm from "./components/checkout/Confirm";
-import Admin from "./components/admin/Admin";
-import Login from "./components/admin/Login";
+import ScrollToTop from './components/ui/ScrollToTop';
+import Banner from './components/ui/Banner';
+import Products from './components/product/Products';
+import Product from './components/product/Product';
+import Cart from './components/cart/Cart';
+import Checkout from './components/checkout/Checkout';
+import Confirm from './components/checkout/Confirm';
+import Admin from './components/admin/Admin';
+import Login from './components/admin/Login';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,7 +26,7 @@ const theme = createMuiTheme({
     secondary: { main: config.colors.secondary.main }
   },
   typography: {
-    fontFamily: ["Poppins", "Arial", "Helvetica", "sans-serif"]
+    fontFamily: ['Poppins', 'Arial', 'Helvetica', 'sans-serif']
   }
 });
 
