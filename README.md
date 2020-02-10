@@ -9,6 +9,7 @@ Site also includes a password-protected admin view, Nodemailer integration for s
 ### Quickstart
 
 > Go [here](https://react-test-store.herokuapp.com/) to view the live site
+> Visit the [START_HERE](https://github.com/Austinmoore1492/React-Store/blob/master/START_HERE.txt) file to see how to set up the Stripe Dashboard and how to use the assets file.
 
 ```
 npm install
