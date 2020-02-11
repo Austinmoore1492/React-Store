@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { StripeProvider } from 'react-stripe-elements';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import config from './assets/store_config';
 import Landing from './components/Landing';
 
-import ScrollToTop from './components/ui/ScrollToTop';
+// import ScrollToTop from './components/ui/ScrollToTop';
 import Banner from './components/ui/Banner';
+import NotFound from './components/ui/NotFound';
 import Products from './components/product/Products';
 import Product from './components/product/Product';
 import Cart from './components/cart/Cart';
@@ -46,58 +47,63 @@ class App extends Component {
     return (
       <StripeProvider apiKey={config.api_key}>
         <Router>
-          <ScrollToTop>
+          <Fragment>
             <MuiThemeProvider theme={theme}>
               <div className={config.store_slug}>
                 <div className="bg" />
                 <Banner quantity={this.state.quantity} config={config} />
-                <Route
-                  exact
-                  path="/"
-                  render={props => <Landing config={config} />}
-                />
-                <Route
-                  exact
-                  path="/product"
-                  render={props => <Products config={config} />}
-                />
-                {config.products.map((product, i) => (
+                <Switch>
                   <Route
                     exact
-                    key={`route${i}`}
-                    path={`/product/${product.url}`}
+                    path="/"
+                    render={props => <Landing config={config} />}
+                  />
+                  <Route
+                    exact
+                    path="/product"
+                    render={props => <Products config={config} />}
+                  />
+                  {config.products.map((product, i) => (
+                    <Route
+                      exact
+                      key={`route${i}`}
+                      path={`/product/${product.url}`}
+                      render={props => (
+                        <Product
+                          product={product}
+                          config={config}
+                          updateNumber={this.updateNumber}
+                        />
+                      )}
+                    />
+                  ))}
+                  <Route
+                    exact
+                    path="/cart"
                     render={props => (
-                      <Product
-                        product={product}
-                        config={config}
-                        updateNumber={this.updateNumber}
-                      />
+                      <Cart config={config} updateNumber={this.updateNumber} />
                     )}
                   />
-                ))}
-                <Route
-                  exact
-                  path="/cart"
-                  render={props => (
-                    <Cart config={config} updateNumber={this.updateNumber} />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/checkout"
-                  render={props => <Checkout config={config} />}
-                />
-                {/* Update Confirmation Prop with nothing in cart when users finish placing an order */}
-                <Route
-                  exact
-                  path="/confirm"
-                  render={props => <Confirm updateNumber={this.updateNumber} />}
-                />
-                <Route exact path="/admin" component={Admin} />
-                <Route exact path="/login" component={Login} />
+                  <Route
+                    exact
+                    path="/checkout"
+                    render={props => <Checkout config={config} />}
+                  />
+                  {/* Update Confirmation Prop with nothing in cart when users finish placing an order */}
+                  <Route
+                    exact
+                    path="/confirm"
+                    render={props => (
+                      <Confirm updateNumber={this.updateNumber} />
+                    )}
+                  />
+                  <Route exact path="/admin" component={Admin} />
+                  <Route exact path="/login" component={Login} />
+                  <Route component={NotFound} />
+                </Switch>
               </div>
             </MuiThemeProvider>
-          </ScrollToTop>
+          </Fragment>
         </Router>
       </StripeProvider>
     );
