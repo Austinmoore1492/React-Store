@@ -9,7 +9,7 @@
     "cookie-parser": "1.4.4",
     "dotenv": "8.2.0",
     "email-templates": "6.0.4",
-    "express": "4.17.1",
+    "express": "4.19.2",
     "express-session": "1.17.0",
     "handlebars": "4.5.3",
     "helmet": "3.21.1",
